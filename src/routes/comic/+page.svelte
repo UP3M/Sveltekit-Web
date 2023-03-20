@@ -1,7 +1,4 @@
 <script lang='ts'>
-    import { base } from "$app/paths";
-
-
 
     //export let getMyComic:ComicObj;
     // console.log(getMyComic);
@@ -53,7 +50,6 @@
     };
     getComic();
     </script>
-<a href="{base}/comic">Link</a>
 <svelte:head>
 	<title>XKCD comic</title>
 	<meta name="description" content="XKCD comic" />
