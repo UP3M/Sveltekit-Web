@@ -1,5 +1,4 @@
-import { c as create_ssr_component, e as escape, d as add_attribute } from './index-41dea004.js';
-import { b as base } from './paths-6db36210.js';
+import { c as create_ssr_component, d as add_attribute } from './index-41dea004.js';
 
 const css = {
   code: ".comic.svelte-1e48ylm{display:block;margin-left:auto;margin-right:auto;width:50%}",
@@ -27,8 +26,7 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   }
   getComic();
   $$result.css.add(css);
-  return `<a href="${escape(base, true) + "/comic"}">Link</a>
-${$$result.head += `<!-- HEAD_svelte-ls4fa7_START -->${$$result.title = `<title>XKCD comic</title>`, ""}<meta name="description" content="XKCD comic"><!-- HEAD_svelte-ls4fa7_END -->`, ""}
+  return `${$$result.head += `<!-- HEAD_svelte-ls4fa7_START -->${$$result.title = `<title>XKCD comic</title>`, ""}<meta name="description" content="XKCD comic"><!-- HEAD_svelte-ls4fa7_END -->`, ""}
 
 <div><h1>XKCD comic</h1>
 <h2 style="text-align: center;"${add_attribute("this", comicTitle, 0)}>title</h2>
@@ -39,4 +37,4 @@ ${$$result.head += `<!-- HEAD_svelte-ls4fa7_START -->${$$result.title = `<title>
 });
 
 export { Page as default };
-//# sourceMappingURL=_page.svelte-481a8336.js.map
+//# sourceMappingURL=_page.svelte-a2988195.js.map
