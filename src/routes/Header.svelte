@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import telegram from '$lib/images/telegram.png';
 	import github from '$lib/images/github.svg';
 </script>
@@ -22,13 +23,13 @@
 		</svg>
 		<ul>
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">About Me</a>
+				<a href="{ base }/">About Me</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/hometown' ? 'page' : undefined}>
-				<a href="/hometown">My Hometown</a>
+				<a href="{ base }/hometown">My Hometown</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/comic' ? 'page' : undefined}>
-				<a href="/comic">Comic</a>
+				<a href="{ base }/comic">Comic</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
