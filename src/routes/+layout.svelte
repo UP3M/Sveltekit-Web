@@ -1,7 +1,10 @@
 <script>
 	import Header from './Header.svelte';
 	import './styles.css';
+	import { base } from '$app/paths';
 </script>
+
+<a href="{base}/">Link</a>
 
 <div class="app">
 	<Header />
