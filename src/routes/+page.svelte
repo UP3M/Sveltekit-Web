@@ -2,7 +2,7 @@
 	import me from '$lib/images/me1.jpg';
 	import { base } from '$app/paths';
 </script>
-<a href="{base}">Link</a>
+<a href="{base}/">Link</a>
 <svelte:head>
 	<title>About Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
