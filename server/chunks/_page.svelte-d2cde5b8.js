@@ -1,5 +1,4 @@
-import { c as create_ssr_component, e as escape } from './index-41dea004.js';
-import { b as base } from './paths-6db36210.js';
+import { c as create_ssr_component } from './index-41dea004.js';
 
 const css = {
   code: ".svelte-1nmlj0p{box-sizing:border-box}.slideshow-container.svelte-1nmlj0p{max-width:1000px;position:relative;margin:auto}.mySlides.svelte-1nmlj0p{display:none}.prev.svelte-1nmlj0p,.next.svelte-1nmlj0p{cursor:pointer;position:absolute;top:50%;width:auto;margin-top:-22px;padding:16px;color:white;font-weight:bold;font-size:18px;transition:0.6s ease;border-radius:0 3px 3px 0;user-select:none}.next.svelte-1nmlj0p{right:0;border-radius:3px 0 0 3px;background-color:#bbb}.prev.svelte-1nmlj0p{left:0;border-radius:3px 0 0 3px;background-color:#bbb}.prev.svelte-1nmlj0p:hover,.next.svelte-1nmlj0p:hover{background-color:rgba(0,0,0,0.8)}.text.svelte-1nmlj0p{color:#f2f2f2;font-size:25px;padding:8px 12px;position:absolute;bottom:8px;width:100%;text-align:center}.numbertext.svelte-1nmlj0p{color:#f2f2f2;font-size:12px;padding:8px 12px;position:absolute;top:0}.fade.svelte-1nmlj0p{animation-name:svelte-1nmlj0p-fade;animation-duration:1.5s}.text.svelte-1nmlj0p{color:#f2f2f2;font-size:25px;padding:8px 12px;position:absolute;bottom:8px;width:100%;text-align:center}.numbertext.svelte-1nmlj0p{color:#f2f2f2;font-size:12px;padding:8px 12px;position:absolute;top:0}@keyframes svelte-1nmlj0p-fade{from{opacity:.4}to{opacity:1}}",
@@ -7,8 +6,7 @@ const css = {
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<a href="${escape(base, true) + "/hometown"}" class="svelte-1nmlj0p">Link</a>
-${$$result.head += `<!-- HEAD_svelte-17b3zbi_START -->${$$result.title = `<title>My Hometown</title>`, ""}<meta name="description" content="Bali, Indonesia" class="svelte-1nmlj0p"><!-- HEAD_svelte-17b3zbi_END -->`, ""}
+  return `${$$result.head += `<!-- HEAD_svelte-17b3zbi_START -->${$$result.title = `<title>My Hometown</title>`, ""}<meta name="description" content="Bali, Indonesia" class="svelte-1nmlj0p"><!-- HEAD_svelte-17b3zbi_END -->`, ""}
 
 <h1 class="svelte-1nmlj0p"><p style="font-size: 20px;" class="svelte-1nmlj0p">About My Hometown</p>
     <p class="svelte-1nmlj0p">Bali, Indonesia</p></h1>
@@ -42,4 +40,4 @@ ${$$result.head += `<!-- HEAD_svelte-17b3zbi_START -->${$$result.title = `<title
 });
 
 export { Page as default };
-//# sourceMappingURL=_page.svelte-15033595.js.map
+//# sourceMappingURL=_page.svelte-d2cde5b8.js.map
