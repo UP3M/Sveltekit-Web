@@ -1,5 +1,4 @@
 <script lang='ts'>
-	import { base } from '$app/paths';
     import { onMount } from 'svelte';
   
     let slideIndex: number = 1;
@@ -24,7 +23,6 @@
     });
   </script>
 
-<a href="{base}/hometown">Link</a>
 <svelte:head>
 	<title>My Hometown</title>
 	<meta name="description" content="Bali, Indonesia" />
