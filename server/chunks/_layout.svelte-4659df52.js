@@ -1,4 +1,4 @@
-import { c as create_ssr_component, e as escape, v as validate_component, b as subscribe, d as add_attribute } from './index-41dea004.js';
+import { c as create_ssr_component, v as validate_component, b as subscribe, d as add_attribute, e as escape } from './index-41dea004.js';
 import { p as page } from './stores-c5f4d1a6.js';
 import { b as base } from './paths-6db36210.js';
 
@@ -33,9 +33,7 @@ const css = {
 };
 const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<a href="${escape(base, true) + "/"}">Link</a>
-
-<div class="app svelte-1wevoko">${validate_component(Header, "Header").$$render($$result, {}, {}, {})}
+  return `<div class="app svelte-1wevoko">${validate_component(Header, "Header").$$render($$result, {}, {}, {})}
 
 	<main class="svelte-1wevoko">${slots.default ? slots.default({}) : ``}</main>
 
@@ -44,4 +42,4 @@ const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 
 export { Layout as default };
-//# sourceMappingURL=_layout.svelte-dea097c3.js.map
+//# sourceMappingURL=_layout.svelte-4659df52.js.map
