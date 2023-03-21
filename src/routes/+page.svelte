@@ -16,7 +16,7 @@
 	<div class="icon-bar">
 		<a id ="tg-link" href="https://t.me/okaresia"><i class="fa fa-telegram"></i></a>
 		<a id ="email" href="mailto:m.wedamerta@innopolis.university"><i class="fa fa-envelope"></i></a>
-		<a id ="gh-link" href="https://github.com/UP3M/Front-end-Web-Develpment"><i class="fa fa-github"></i></a>
+		<a id ="gh-link" href="https://github.com/UP3M/Sveltekit-Web"><i class="fa fa-github"></i></a>
 	</div>
 </div>
 <div class="main">
