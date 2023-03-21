@@ -1,73 +1,87 @@
 <script lang='ts'>
-
-    //export let getMyComic:ComicObj;
-    // console.log(getMyComic);
-
-    let comicTitle: HTMLElement | null = null;
-    let displayComic: HTMLImageElement | null = null;
-    let comicAlt: HTMLElement | null = null;
-    let uploadDate: HTMLElement | null = null;
+    import { onMount } from 'svelte';
+    
+    export let email = 'm.wedamerta@innopolis.university';
     
     interface ComicObj {
-        title: string;
-        img: string;
-        alt: string;
-        year: string
-        month: string;
-        day: string;
+      title: string;
+      img: string;
+      alt: string;
+      year: string
+      month: string;
+      day: string;
     }
     
     async function fetchSomeComic(email: string): Promise<ComicObj> {
-        const params = new URLSearchParams();
-        if (email) {
-            params.set('email', email);
-        }
-        const findId = await fetch('https://fwd.innopolis.app/api/hw2?email=' + params.toString())
-        const getId = await findId.json()
-        console.log(getId)
-        const comicAtr = await fetch('https://getxkcd.vercel.app/api/comic?num=' + getId)
-        const getMyComic = await comicAtr.json()
-        return getMyComic;
+      const params = new URLSearchParams();
+      if (email) {
+          params.set('email', email);
+      }
+      const findId = await fetch('https://fwd.innopolis.app/api/hw2?email=' + params.toString())
+      const getId: ComicObj = await findId.json()
+      console.log(getId)
+      return fetch('https://getxkcd.vercel.app/api/comic?num=' + getId)
+      .then(r => r.json());
     }
     
-    function handleComic(comicObj: ComicObj): void {
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' } as const;
-        const { title, img, alt, year, month, day} = comicObj;
-        if(comicTitle) comicTitle.textContent = title; // Note: never use innerHTML for unsanitized input you don't control
-        if(displayComic) {
-            displayComic.src = img;
-            displayComic.setAttribute('alt', alt);
-        };
-        if(comicAlt) comicAlt.textContent = alt;
-        const date = new Date(parseInt(year), parseInt(month), parseInt(day));
-        if(uploadDate) uploadDate.textContent = date.toLocaleDateString(undefined, options);
+    export let comic: ComicObj = {
+      title: '',
+      img: '',
+      alt: '',
+      year: '',
+      month: '',
+      day: ''
     }
     
     async function getComic(): Promise<void> {
-        if(comicTitle) comicTitle.textContent = 'Loading...';
-        const MyComic:ComicObj = await fetchSomeComic('m.wedamerta@innopolis.university')
-        handleComic(MyComic);
+      comic = {
+        title: 'Loading...',
+        img: 'https://anatomised.com/wp-content/uploads/2016/05/spinner-test4.gif',
+        alt: 'XKCD comic',
+        year: '',
+        month: '',
+        day: ''
+      };
+    
+      const fetchedComic = await fetchSomeComic(email);
+      comic = fetchedComic;
     };
-    getComic();
-    </script>
-<svelte:head>
-	<title>XKCD comic</title>
-	<meta name="description" content="XKCD comic" />
-</svelte:head>
+    
+    onMount(getComic);
+  </script>
+  <div>
+    <h2>XKCD comic</h2>
+    <h3 style="text-align: center;">{comic.title}</h3>
+    <p>{comic.alt}</p>
+    <img class="comic" src={comic.img} alt={comic.alt}/>
+    <p style="text-align: center;">{new Date(parseInt(comic.year), parseInt(comic.month), parseInt(comic.day)).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+  </div>
 
-<div>
-<h1>XKCD comic</h1>
-<h2 bind:this={comicTitle} style="text-align: center;">title</h2>
-<p bind:this={comicAlt}></p>
-<img src='https://anatomised.com/wp-content/uploads/2016/05/spinner-test4.gif' bind:this={displayComic} class="comic" alt="XKCD comic"/>
-<p bind:this={uploadDate} style="text-align: center;"></p>
-</div>
-
-<style>
-.comic {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-</style>
+  <style>
+    .comic {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    @media (max-width: 768px) {
+      h3 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 0.8rem;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      h3 {
+        font-size: 1rem;
+      }
+      p {
+        font-size: 0.7rem;
+      }
+      .comic {
+        max-width: 90%;
+        margin: 0 auto;
+      }
+    }
+  </style>
