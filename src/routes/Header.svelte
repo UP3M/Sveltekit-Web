@@ -11,7 +11,7 @@
 </div>
 <header>
 	<div class="corner">
-		<a href="https://github.com/UP3M/Front-end-Web-Develpment">
+		<a href="https://github.com/UP3M/Sveltekit-Web">
 			<img src={github} alt="GitHub" />
 		</a>
 	</div>
