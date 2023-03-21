@@ -1,5 +1,4 @@
-import { c as create_ssr_component, e as escape, d as add_attribute } from './index-41dea004.js';
-import { b as base } from './paths-6db36210.js';
+import { c as create_ssr_component, d as add_attribute } from './index-41dea004.js';
 
 const me = "/Sveltekit-Web/_app/immutable/assets/me1.1897a731.jpg";
 const css = {
@@ -8,8 +7,7 @@ const css = {
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<a href="${escape(base, true) + "/"}" class="svelte-1wj53ao">Link</a>
-${$$result.head += `<!-- HEAD_svelte-utt3i1_START -->${$$result.title = `<title>About Me</title>`, ""}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" class="svelte-1wj53ao"><meta name="description" content="My Personal Website" class="svelte-1wj53ao"><!-- HEAD_svelte-utt3i1_END -->`, ""}
+  return `${$$result.head += `<!-- HEAD_svelte-utt3i1_START -->${$$result.title = `<title>About Me</title>`, ""}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" class="svelte-1wj53ao"><meta name="description" content="My Personal Website" class="svelte-1wj53ao"><!-- HEAD_svelte-utt3i1_END -->`, ""}
 
 <section class="svelte-1wj53ao"><div class="row svelte-1wj53ao"><div class="side svelte-1wj53ao"><img class="img-avatar svelte-1wj53ao"${add_attribute("src", me, 0)} alt="Avatar">
 	<h1 style="text-align: center;" class="svelte-1wj53ao">Made Oka Resia Wedamerta</h1>
@@ -36,4 +34,4 @@ ${$$result.head += `<!-- HEAD_svelte-utt3i1_START -->${$$result.title = `<title>
 });
 
 export { Page as default };
-//# sourceMappingURL=_page.svelte-7f235d7e.js.map
+//# sourceMappingURL=_page.svelte-f37a3252.js.map
