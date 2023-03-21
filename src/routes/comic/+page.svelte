@@ -61,6 +61,8 @@
     .comic {
       max-width: 100%;
       height: auto;
+      margin-left: auto;
+      margin-right: auto;
     }
   
     @media (max-width: 768px) {
