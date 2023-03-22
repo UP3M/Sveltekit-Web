@@ -1,5 +1,5 @@
 <script lang='ts'>
-    import { onMount, beforeUpdate } from 'svelte';
+    import { onMount } from 'svelte';
   
     let slideIndex: number = 1;
   
@@ -18,13 +18,9 @@
       (slides[slideIndex-1] as HTMLElement).style.display = "block";
     }
   
-    onMount(() => {
+    onMount(async() => {
       showSlides(slideIndex);
     });
-
-    beforeUpdate(() => {
-    showSlides(slideIndex);
-  });
   </script>
 <svelte:head>
 	<title>My Hometown</title>
