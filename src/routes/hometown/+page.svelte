@@ -1,7 +1,6 @@
 <script lang='ts'>
-    import { onMount } from 'svelte';
   
-    let slideIndex: number = 1;
+    export let slideIndex: number = 1;
   
     function plusSlides(n: number): void {
       showSlides(slideIndex += n);
@@ -17,10 +16,6 @@
       }
       (slides[slideIndex-1] as HTMLElement).style.display = "block";
     }
-  
-    onMount(() => {
-      showSlides(slideIndex);
-    });
   </script>
 
 <svelte:head>
@@ -31,7 +26,8 @@
 <h1><p style="font-size: 20px;">About My Hometown</p>
     <p>Bali, Indonesia</p>
 </h1>
-
+    {#await showSlides(slideIndex)}
+    
     <div class="slideshow-container">
     
         <!-- Full-width images with number and caption text -->
@@ -68,7 +64,8 @@
             Whatever your age, background, budget or interest,
             there is something great for everyone to explore and discover. And that’s a promise.</p>
     
-              
+            
+    {/await}    
 <style>
 /* Slideshow container */
 * {box-sizing:border-box}
