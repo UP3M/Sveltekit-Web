@@ -1,5 +1,4 @@
 <script lang='ts'>
-    import { onMount } from 'svelte';
     
     export let email = 'm.wedamerta@innopolis.university';
     
@@ -18,44 +17,36 @@
           params.set('email', email);
       }
       const findId = await fetch('https://fwd.innopolis.app/api/hw2?email=' + params.toString())
-      const getId: ComicObj = await findId.json()
-      console.log(getId)
-      return fetch('https://getxkcd.vercel.app/api/comic?num=' + getId)
-      .then(r => r.json());
+      const getId: number = await findId.json()
+      const findComic = await fetch('https://getxkcd.vercel.app/api/comic?num=' + getId)
+      const getComic:ComicObj = await findComic.json()
+      return getComic
     }
     
     export let comic: ComicObj = {
-      title: '',
-      img: '',
-      alt: '',
-      year: '',
-      month: '',
-      day: ''
-    }
-    
-    async function getComic(): Promise<void> {
-      comic = {
-        title: 'Loading...',
+      title: 'Loading...',
         img: 'https://anatomised.com/wp-content/uploads/2016/05/spinner-test4.gif',
         alt: 'XKCD comic',
         year: '',
         month: '',
         day: ''
-      };
+    }
     
-      const fetchedComic = await fetchSomeComic(email);
-      comic = fetchedComic;
-    };
-    
-    onMount(getComic);
   </script>
-  <div>
+  
+    {#await fetchSomeComic(email)}
+    <p>Loading...</p>
+    {:then getComic} 
+    <div>
     <h2>XKCD comic</h2>
-    <h3 style="text-align: center;">{comic.title}</h3>
-    <p>{comic.alt}</p>
-    <img class="comic" src={comic.img} alt={comic.alt}/>
-    <p style="text-align: center;">{new Date(parseInt(comic.year), parseInt(comic.month), parseInt(comic.day)).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
-  </div>
+    <h3 style="text-align: center;">{getComic.title}</h3>
+    <p>{getComic.alt}</p>
+    <img class="comic" src={getComic.img} alt={comic.alt}/>
+    <p style="text-align: center;">{new Date(parseInt(getComic.year), parseInt(getComic.month), parseInt(getComic.day)).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+    </div>
+      
+    {/await}
+    
 
 <style>
   .comic {
