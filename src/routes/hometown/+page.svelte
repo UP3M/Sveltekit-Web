@@ -1,6 +1,7 @@
 <script lang='ts'>
+    import { onMount, beforeUpdate } from 'svelte';
   
-    export let slideIndex: number = 1;
+    let slideIndex: number = 1;
   
     function plusSlides(n: number): void {
       showSlides(slideIndex += n);
@@ -16,8 +17,15 @@
       }
       (slides[slideIndex-1] as HTMLElement).style.display = "block";
     }
-  </script>
+  
+    onMount(() => {
+      showSlides(slideIndex);
+    });
 
+    beforeUpdate(() => {
+    showSlides(slideIndex);
+  });
+  </script>
 <svelte:head>
 	<title>My Hometown</title>
 	<meta name="description" content="Bali, Indonesia" />
@@ -26,10 +34,7 @@
 <h1><p style="font-size: 20px;">About My Hometown</p>
     <p>Bali, Indonesia</p>
 </h1>
-    {#await showSlides(slideIndex)}
-            
-    {/await} 
-    
+
     <div class="slideshow-container">
     
         <!-- Full-width images with number and caption text -->
@@ -64,7 +69,9 @@
             Bali is rated as one of the best travel destinations in the world by countless websites, 
             review portals, and travel magazines each year – for very good reasons. 
             Whatever your age, background, budget or interest,
-            there is something great for everyone to explore and discover. And that’s a promise.</p>   
+            there is something great for everyone to explore and discover. And that’s a promise.</p>
+    
+              
 <style>
 /* Slideshow container */
 * {box-sizing:border-box}
