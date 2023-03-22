@@ -1,5 +1,4 @@
 <script lang='ts'>
-    import { onMount } from 'svelte';
     
     export let email = 'm.wedamerta@innopolis.university';
     
@@ -47,43 +46,42 @@
       comic = fetchedComic;
     };
     
-    onMount(getComic);
   </script>
-  <div>
+  
+  {#await getComic}
+    <div>
     <h2>XKCD comic</h2>
     <h3 style="text-align: center;">{comic.title}</h3>
     <p>{comic.alt}</p>
     <img class="comic" src={comic.img} alt={comic.alt}/>
     <p style="text-align: center;">{new Date(parseInt(comic.year), parseInt(comic.month), parseInt(comic.day)).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
-  </div>
+    </div>
+  {/await}
+<style>
+  .comic {
+    max-width: 100%;
+    height: auto;
+  }
 
-  <style>
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h3 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 0.7rem;
+    }
     .comic {
-      max-width: 100%;
-      height: auto;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 90%;
+      margin: 0 auto;
     }
-  
-    @media (max-width: 768px) {
-      h3 {
-        font-size: 1.5rem;
-      }
-      p {
-        font-size: 0.8rem;
-      }
-    }
-  
-    @media (max-width: 480px) {
-      h3 {
-        font-size: 1rem;
-      }
-      p {
-        font-size: 0.7rem;
-      }
-      .comic {
-        max-width: 90%;
-        margin: 0 auto;
-      }
-    }
-  </style>
+  }
+</style>
