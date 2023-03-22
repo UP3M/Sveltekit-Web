@@ -7,6 +7,17 @@
 		<meta http-equiv="content-security-policy" content="">
 		<link href="../_app/immutable/assets/_layout.18623ff9.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/_page.6436c148.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.2960a46e.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.2fb7a766.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.4c1a0ffb.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.3efa0e16.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/_layout.svelte.3abd05d7.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/stores.5cb8ce32.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/_layout.ts.822e9be0.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/_layout.79cb23d1.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/comic-page.svelte.8376bae7.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/comic-page.ts.9c5eea7e.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/_page.fca24c55.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -33,6 +44,32 @@
 	<footer class="svelte-1wevoko"><p>Copyright Ⓒ Made Oka Resia Wedamerta</p></footer>
 </div>
 
-</div>
+
+			
+			<script>
+				{
+					__sveltekit_c34okx = {
+						env: {},
+						assets: "/Sveltekit-Web",
+						base: new URL("..", location).pathname.slice(0, -1),
+						element: document.currentScript.parentElement
+					};
+
+					const data = [null,null];
+
+					Promise.all([
+						import("../_app/immutable/entry/start.2960a46e.js"),
+						import("../_app/immutable/entry/app.3efa0e16.js")
+					]).then(([kit, app]) => {
+						kit.start(app, __sveltekit_c34okx.element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
 	</body>
 </html>
