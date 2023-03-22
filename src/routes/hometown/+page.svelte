@@ -27,6 +27,8 @@
     <p>Bali, Indonesia</p>
 </h1>
     {#await showSlides(slideIndex)}
+            
+    {/await} 
     
     <div class="slideshow-container">
     
@@ -62,10 +64,7 @@
             Bali is rated as one of the best travel destinations in the world by countless websites, 
             review portals, and travel magazines each year – for very good reasons. 
             Whatever your age, background, budget or interest,
-            there is something great for everyone to explore and discover. And that’s a promise.</p>
-    
-            
-    {/await}    
+            there is something great for everyone to explore and discover. And that’s a promise.</p>   
 <style>
 /* Slideshow container */
 * {box-sizing:border-box}
