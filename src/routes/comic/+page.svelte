@@ -1,4 +1,5 @@
 <script lang='ts'>
+    import { onMount, beforeUpdate } from 'svelte';
     
     export let email = 'm.wedamerta@innopolis.university';
     
@@ -46,17 +47,19 @@
       comic = fetchedComic;
     };
     
+    onMount(getComic);
+    beforeUpdate(() => {
+    getComic();
+    });
   </script>
-  
-  {#await getComic}
-    <div>
+  <div>
     <h2>XKCD comic</h2>
     <h3 style="text-align: center;">{comic.title}</h3>
     <p>{comic.alt}</p>
     <img class="comic" src={comic.img} alt={comic.alt}/>
     <p style="text-align: center;">{new Date(parseInt(comic.year), parseInt(comic.month), parseInt(comic.day)).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
-    </div>
-  {/await}
+  </div>
+
 <style>
   .comic {
     max-width: 100%;
