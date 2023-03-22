@@ -1,5 +1,5 @@
 <script lang='ts'>
-    import { onMount, beforeUpdate } from 'svelte';
+    import { onMount } from 'svelte';
     
     export let email = 'm.wedamerta@innopolis.university';
     
@@ -48,9 +48,6 @@
     };
     
     onMount(getComic);
-    beforeUpdate(() => {
-    getComic();
-    });
   </script>
   <div>
     <h2>XKCD comic</h2>
